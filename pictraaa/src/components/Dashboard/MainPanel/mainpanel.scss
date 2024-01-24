@@ -17,3 +17,29 @@
 .full-width-panel {
     width: 100%;
 }
+.mobile_msg {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.mobile_msg p {
+    font: 600 22px/32px var(--primary_font);
+    text-transform: uppercase;
+}
+.main_body_content, .sideBar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    padding-bottom: 60px;
+}
+.dashboard_screen::-webkit-scrollbar, .main_body_content::-webkit-scrollbar, .sideBar::-webkit-scrollbar {
+    display: none;
+}
+.dashbord_card_sec .al_card{
+    max-width: 100%;
+    
+}
+.container_dashbord{
+    max-height: 100vh;
+    overflow-y: hidden;
+}
