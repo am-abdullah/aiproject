@@ -1,4 +1,5 @@
 import React from "react";
+import Dropdown from "../DropDown/Profile/ProfileDropdown";
 import site_logo from "@images/site_logo.png";
 import aiIcon from "@icons/AI.png";
 import canvasIcon from "@icons/canvas.png";
@@ -117,31 +118,7 @@ const Sidebar = () => {
         </div>
 
         <div className="sideBar_tools user_pictro mt-3 px-4">
-          <div className="dropdown">
-            <a
-              className="btn w-100 dropdown-toggle d-flex align-items-center gap-2 text-white"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <img src={userPictroIcon} alt="" />
-              User Pictro
-            </a>
-
-            <ul className="dropdown-menu w-100">
-              <li>
-                <a className="dropdown-item" href="#">
-                  Setting
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Log Out
-                </a>
-              </li>
-            </ul>
-          </div>
+          <Dropdown />
         </div>
       </aside>
     </>

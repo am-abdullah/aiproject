@@ -20,11 +20,11 @@ const ProfileDropdown = () => {
      }
 
     return (
-        <Dropdown className="profile-dropdown" onToggle={toggleDropdown}>
-            <Dropdown.Toggle id="profile-dropdown-toggle">
+        <Dropdown className="profile-dropdown " onToggle={toggleDropdown}>
+            <Dropdown.Toggle id="profile-dropdown-toggle" className='p-0'>
                 <img src={userImg} alt="user-img" />
-                <span>Hello Smith!</span>
-                <FontAwesomeIcon className={show ? 'angle-up' : ''} icon={faAngleDown} />
+                <span className='text-white'>Hello Smith!</span>
+                <FontAwesomeIcon className={show ? 'angle-up dropdown_icon' : ''} icon={faAngleDown} />
             </Dropdown.Toggle>
             <Dropdown.Menu show={show} id="profile-dropdown-menu">
                 <Dropdown.Item>Profile</Dropdown.Item>
