@@ -2,11 +2,11 @@ import React from "react";
 import "./art-generator.scss";
 import TopBar from "./TopBar";
 import SideBar from "./Sidebar";
-import img from "@images/generate_tool_img.png";
+import upload_img from "@images/icons/upload.svg";
 export default function ImageRemix() {
   return (
     <>
-     <div className="main_wrapper">
+      <div className="main_wrapper">
         <header className="art_header bg-black">
           <TopBar />
         </header>
@@ -17,7 +17,11 @@ export default function ImageRemix() {
                 <div class="main_art_wrapper position-relative">
                   <div class="main_img text-center">
                     <div className="img_upload">
-                      <input type="file" />
+                      <label htmlFor="" for="upload" className="img_upload_lable">
+                        <input type="file" id="upload" className="d-none" />
+                        <img src={upload_img} alt="icon" />
+                        <span>Upload Image</span>
+                      </label>
                     </div>
                   </div>
                   <div class="generate_form my-5 pt-5">

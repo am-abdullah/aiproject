@@ -79,7 +79,7 @@ const MainPanel = (props) => {
           </div>
           <div className="col-lg-9 col-md-8 col-8">
             <div className="main_body_content">
-              <div className="generate_img_sec">
+              <a href="/dashboard/tool/from-text" className="generate_img_sec d-block">
               <video src={text_to_img} muted={true} loop={true} autoPlay={true} width="100%" className="rounded-2"></video>
                 <div className="card_content mt-3">
                   <h3 className="text-white">Text to image</h3>
@@ -87,7 +87,7 @@ const MainPanel = (props) => {
                     Transform your words into stunning AI Arts
                   </p>
                 </div>
-              </div>
+              </a>
               <div className="dashbord_card_sec mt-5 row">
                 <div className="col-12">
                   <h2 className="text-white">AI Tools</h2>

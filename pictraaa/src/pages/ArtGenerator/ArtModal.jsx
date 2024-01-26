@@ -5,13 +5,13 @@ export default function ArtModal() {
   return (
     <>
       <div
-        className="modal fade"
+        className="modal fade art_modal"
         id="modalsModel"
         tabindex="-1"
         aria-labelledby="modalsModelLabel"
         aria-hidden="true"
       >
-        <div className=" modal-dialog modal-dialog-scrollable">
+        <div className=" modal-dialog modal-dialog-scrollable modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="modalsModelLabel">
@@ -33,27 +33,6 @@ export default function ArtModal() {
               <div className="model_cards">
                 <div className="model_cards_wrapper">
                   <div className="row g-1">
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card2}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card2}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card2}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
                     <div className="col-4">
                       <img
                         src={art_gen_card2}
