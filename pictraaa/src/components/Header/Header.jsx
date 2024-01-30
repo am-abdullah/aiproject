@@ -39,10 +39,10 @@ const Header = () => {
               </li>
             </ul>
             <div className="btns d-lg-block d-flex justify-content-around">
-              <a href="" className="btn text-white fw-6 fs-12">
+              <a href="/login" className="btn text-white fw-6 fs-12">
                 Sign in
               </a>
-              <a href="" className="btn btn-primary border-0 fw-5 fs-13">
+              <a href="/dashboard" className="btn btn-primary border-0 fw-5 fs-13">
                 Launch Apps
               </a>
             </div>

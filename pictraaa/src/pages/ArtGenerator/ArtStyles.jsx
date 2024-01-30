@@ -1,6 +1,14 @@
 import React from "react";
 import "./art-generator.scss";
-import art_gen_card2 from "@images/art-gen-card2.png";
+import img1 from "@images/style1.svg";
+import img2 from "@images/style2.svg";
+import img3 from "@images/style3.svg";
+import img4 from "@images/style4.svg";
+import img5 from "@images/style5.svg";
+import img6 from "@images/style6.svg";
+import img7 from "@images/style7.svg";
+import img8 from "@images/style8.svg";
+import img9 from "@images/style9.svg";
 export default function ArtStyles() {
   return (
     <>
@@ -35,42 +43,64 @@ export default function ArtStyles() {
                   <div className="row g-1">
                     <div className="col-4">
                       <img
-                        src={art_gen_card2}
+                        src={img1}
                         className="w-100"
                         alt="search"
                       />
                     </div>
                     <div className="col-4">
                       <img
-                        src={art_gen_card2}
+                        src={img2}
                         className="w-100"
                         alt="search"
                       />
                     </div>
                     <div className="col-4">
                       <img
-                        src={art_gen_card2}
+                        src={img3}
                         className="w-100"
                         alt="search"
                       />
                     </div>
                     <div className="col-4">
                       <img
-                        src={art_gen_card2}
+                        src={img4}
                         className="w-100"
                         alt="search"
                       />
                     </div>
                     <div className="col-4">
                       <img
-                        src={art_gen_card2}
+                        src={img5}
                         className="w-100"
                         alt="search"
                       />
                     </div>
                     <div className="col-4">
                       <img
-                        src={art_gen_card2}
+                        src={img6}
+                        className="w-100"
+                        alt="search"
+                      />
+                    </div>
+
+                    <div className="col-4">
+                      <img
+                        src={img7}
+                        className="w-100"
+                        alt="search"
+                      />
+                    </div>
+                    <div className="col-4">
+                      <img
+                        src={img8}
+                        className="w-100"
+                        alt="search"
+                      />
+                    </div>
+                    <div className="col-4">
+                      <img
+                        src={img9}
                         className="w-100"
                         alt="search"
                       />
