@@ -30,7 +30,7 @@ export default function ImageRemix() {
 
   const generateImage = async () => {
     const data = handleSetFormData(imageData);
-    console.log(textData);
+
     try {
       const response = await axiosWrapper("post", `/avatar`, data, true, true);
       console.log(response);
