@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./art-generator.scss";
 import art_gen_card1 from "@images/model1.svg";
 import art_gen_card2 from "@images/model2.svg";
@@ -9,8 +9,34 @@ import art_gen_card6 from "@images/model6.svg";
 import art_gen_card7 from "@images/model7.svg";
 import art_gen_card8 from "@images/model8.svg";
 import art_gen_card9 from "@images/model9.svg";
+import Dreamshaper from "@images/icons/Dreamshaper.svg";
 
-export default function ArtModal() {
+export default function ArtModal({ updateValueForKey }) {
+  const [models] = useState([
+    // { name: "Dream", value: "dreamshaper8", icon: Dreamshaper },
+    // { name: "", value: "epicDiffusion_epicDiffusion11" },
+    {
+      name: "Epic Realism",
+      value: "epicrealism_pureEvolutionV4",
+      icon: art_gen_card3,
+    },
+    {
+      name: "Majic",
+      value: "majicmixRealistic_betterV2V25",
+      icon: art_gen_card1,
+    },
+    // { name: "", value: "meinamix_meinaV11" },
+    {
+      name: "Realistic vision",
+      value: "realisticVisionV51_v51VAE",
+      icon: art_gen_card7,
+    },
+  ]);
+
+  const handleSelectModel = (value) => {
+    updateValueForKey("model", value);
+  };
+
   return (
     <>
       <div
@@ -36,75 +62,31 @@ export default function ArtModal() {
             <div className="modal-body">
               <div className="model_search_form">
                 <form action="">
-                  <input type="text" placeholder="Search" className="text-white"/>
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    className="text-white"
+                  />
                 </form>
               </div>
               <div className="model_cards">
                 <div className="model_cards_wrapper">
                   <div className="row g-1">
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card1}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card2}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card3}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card4}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card5}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card6}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card7}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card8}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={art_gen_card9}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
+                    {models?.map((model, index) => (
+                      <div
+                        onClick={() => {
+                          handleSelectModel(model?.value);
+                        }}
+                        key={index + "--models"}
+                        className="col-4 cursor-pointer"
+                      >
+                        <img
+                          src={model?.icon}
+                          className="w-100 "
+                          alt="search"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

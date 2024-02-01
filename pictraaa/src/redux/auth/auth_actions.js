@@ -1,20 +1,34 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import axiosWrapper from '../../utils/api';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axiosWrapper from "../../utils/api";
 
-export const loginUser = createAsyncThunk('auth/login', async ({ email, password }, { rejectWithValue }) => {
+export const loginUser = createAsyncThunk(
+  "auth/login",
+  async ({ email, password }, { rejectWithValue }) => {
     try {
-        const { data } = await axiosWrapper('post', `${import.meta.env.VITE_API_URL}/api/user/login`, { email, password });
-        return data;
+      const { data } = await axiosWrapper(
+        "post",
+        `${import.meta.env.VITE_API_URL}/api/user/login`,
+        { email, password }
+      );
+      return data;
     } catch (error) {
-        return rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
-})
+  }
+);
 
-export const registerUser = createAsyncThunk('auth/register', async ({ email, password, name }, { rejectWithValue }) => {
+export const registerUser = createAsyncThunk(
+  "auth/register",
+  async ({ email, password, phone_number }, { rejectWithValue }) => {
     try {
-        const { data } = await axiosWrapper('post', `${import.meta.env.VITE_API_URL}/api/user/register`, { email, password, name });
-        return data;
+      const { data } = await axiosWrapper("post", `/auth/signup`, {
+        email,
+        password,
+        phone_number,
+      });
+      return data;
     } catch (error) {
-        return rejectWithValue(error.message);
+      return rejectWithValue(error.message);
     }
-})
+  }
+);

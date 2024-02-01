@@ -1,9 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "./art-generator.scss";
 import TopBar from "./TopBar";
 import SideBar from "./Sidebar";
 import img from "@images/generate_tool_img.png";
+import axiosWrapper from "../../utils/api";
 export default function FormText() {
+  const [textData, setTextData] = useState({
+    model: "",
+    prompt: "",
+    negative_prompt: "",
+    seed: "",
+    styles: "5",
+    cfg_scale: "",
+    steps: "",
+    width: "512",
+    height: "512",
+  });
+
+  const updateValueForKey = (key, value) => {
+    setInputData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
+
+  const handleSetFormData = async (data) => {
+    const formData = new FormData();
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        formData.append(key, data[key]);
+      }
+    }
+
+    return formData;
+  };
+
+  const generateImage = async () => {
+    const data = handleSetFormData(textData);
+    console.log(textData);
+    try {
+      const response = await axiosWrapper("post", `/artgen`, data, true, true);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="main_wrapper">
@@ -25,10 +67,13 @@ export default function FormText() {
                           type="text"
                           placeholder="A man on mars"
                           class="w-100 p-3"
+                          onChange={(e) =>
+                            updateValueForKey("prompt", e.target.value)
+                          }
                         />
                         <button
-                          type="submit"
                           class="btn btn-primary position-absolute"
+                          onClick={generateImage}
                         >
                           <i class="bi bi-star-fill"></i>
                           Generate
@@ -39,7 +84,11 @@ export default function FormText() {
                 </div>
               </div>
               <div class="col-3">
-                <SideBar />
+                <SideBar
+                  updateValueForKey={updateValueForKey}
+                  inputData={textData}
+                  setInputData={setTextData}
+                />
               </div>
             </div>
           </section>

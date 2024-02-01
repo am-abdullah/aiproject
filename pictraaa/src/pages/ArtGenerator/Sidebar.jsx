@@ -7,7 +7,11 @@ import Dreamshaper from "@images/icons/Dreamshaper.svg";
 import Down_arrow from "@images/icons/down_arrow.svg";
 import Img_3d from "@images/icons/3d.svg";
 
-export default function Sidebar() {
+export default function Sidebar({
+  inputData,
+  setInputData,
+  updateValueForKey,
+}) {
   return (
     <>
       <div className="sidebar_wrapper bg-black mt-2">
@@ -16,7 +20,11 @@ export default function Sidebar() {
             Number of Images <img src={Tool_tip} alt="icon" className="ms-1" />
           </span>
           <div>
-            <select class="form-select form-select-bg-dark" aria-label="Default select example">
+            <select
+              class="form-select form-select-bg-dark"
+              aria-label="Default select example"
+              disabled
+            >
               <option selected> 1</option>
               <option value="1">2</option>
               <option value="2">3</option>
@@ -28,7 +36,10 @@ export default function Sidebar() {
             Aspect Ratio <img src={Tool_tip} alt="icon" className="ms-1" />
           </span>
           <div>
-            <select class="form-select form-select-bg-dark" aria-label="Default select example">
+            <select
+              class="form-select form-select-bg-dark"
+              aria-label="Default select example"
+            >
               <option selected> 1:1</option>
               <option value="1">9:16</option>
               <option value="2">16:9</option>
@@ -49,13 +60,18 @@ export default function Sidebar() {
               data-bs-target="#modalsModel"
             >
               <span className="d-flex align-items-center gap-1">
-                <img src={Dreamshaper} className="me-1" alt="icon" height={"30px"} />
+                <img
+                  src={Dreamshaper}
+                  className="me-1"
+                  alt="icon"
+                  height={"30px"}
+                />
                 Dreamshaper
               </span>
               <img src={Down_arrow} alt="icon" />
             </button>
           </div>
-          <ArtModal />
+          <ArtModal updateValueForKey={updateValueForKey} />
         </div>
         <div className="art_styles side_setting">
           <span className="tool_lable text-white ">
@@ -70,13 +86,13 @@ export default function Sidebar() {
               data-bs-target="#stylesModel"
             >
               <span className="d-flex align-items-center gap-1">
-                <img src={Img_3d} className="me-1" alt="icon"height={"30px"} />
+                <img src={Img_3d} className="me-1" alt="icon" height={"30px"} />
                 3D
               </span>
               <img src={Down_arrow} alt="icon" />
             </button>
           </div>
-          <ArtStyles />
+          <ArtStyles updateValueForKey={updateValueForKey} />
         </div>
         <div className="negative_prompt side_setting">
           <span className="tool_lable text-white">
@@ -84,7 +100,12 @@ export default function Sidebar() {
           </span>
           <div>
             <form action="">
-              <textarea className="text-white"></textarea>
+              <textarea
+                onChange={(e) =>
+                  updateValueForKey("negative_prompt", e.target.value)
+                }
+                className="text-white"
+              ></textarea>
             </form>
           </div>
         </div>
@@ -97,7 +118,11 @@ export default function Sidebar() {
           </div>
           <div>
             <form action="">
-              <input type="range" className="w-100" />
+              <input
+                type="range"
+                onChange={(e) => updateValueForKey("cfg_scale", e.target.value)}
+                className="w-100"
+              />
             </form>
           </div>
         </div>
@@ -111,7 +136,11 @@ export default function Sidebar() {
           </div>
           <div>
             <form action="">
-              <input type="range" className="w-100" />
+              <input
+                type="range"
+                onChange={(e) => updateValueForKey("steps", e.target.value)}
+                className="w-100"
+              />
             </form>
           </div>
         </div>
@@ -121,7 +150,18 @@ export default function Sidebar() {
               Seed
               <img src={Tool_tip} alt="icon" className="ms-1" />
             </span>
-            <span className="btn_shape header_icons text-white">30</span>
+            <span
+              onChange={(e) => {
+                if (e.target.value < -1) {
+                  updateValueForKey("seed", -1);
+                } else {
+                  updateValueForKey("seed", e.target.value);
+                }
+              }}
+              className="btn_shape header_icons text-white"
+            >
+              30
+            </span>
           </div>
           <div>
             <form action="">
