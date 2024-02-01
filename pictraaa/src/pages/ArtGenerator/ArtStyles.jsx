@@ -12,7 +12,16 @@ import img9 from "@images/style9.svg";
 import img10 from "@images/style10.svg";
 import img11 from "@images/style11.svg";
 import img12 from "@images/style12.svg";
-export default function ArtStyles() {
+export default function ArtStyles({ updateValueForKey }) {
+  const stylesList = [
+    { value: 0, label: "Pictro Cartoon", icon: img8 },
+    { value: 1, label: "Professional 3D Model", icon: img12 },
+    { value: 2, label: "Anime Artwork", icon: img10 },
+    { value: 3, label: "Breathtaking", icon: img9 },
+    { value: 4, label: "Fantasy Art", icon: img5 },
+    { value: 5, label: "Watercolor Anime (default)", icon: img1 },
+  ];
+
   return (
     <>
       <div
@@ -44,92 +53,15 @@ export default function ArtStyles() {
               <div className="model_cards">
                 <div className="model_cards_wrapper">
                   <div className="row g-1">
-                    <div className="col-4">
-                      <img
-                        src={img1}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img2}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img3}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img4}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img5}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img6}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-
-                    <div className="col-4">
-                      <img
-                        src={img7}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img8}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img9}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-
-                    <div className="col-4">
-                      <img
-                        src={img10}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img11}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
-                    <div className="col-4">
-                      <img
-                        src={img12}
-                        className="w-100"
-                        alt="search"
-                      />
-                    </div>
+                    {stylesList?.map((style, index) => (
+                      <div
+                        onClick={() => updateValueForKey("styles", style.value)}
+                        key={index + "--styles"}
+                        className="col-4 cursor-pointer"
+                      >
+                        <img src={style?.icon} className="w-100" alt="search" />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
